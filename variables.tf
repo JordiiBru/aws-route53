@@ -43,7 +43,7 @@ variable "domain_name" {
 
 # OPTIONAL VARIABLES
 variable "cloudfront_endpoint" {
-  description = "Clodufront endpoint"
+  description = "Cloudfront endpoint"
   type        = string
   default     = ""
 }

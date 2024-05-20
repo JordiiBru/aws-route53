@@ -4,6 +4,5 @@ output "zone_name" {
 }
 
 output "cert_record" {
-  value       = aws_route53_record.cert_valdiations[*]
-  description = "The Route53 record for certificate validation"
+  value       = aws_route53_record.A_record[*]
 }
