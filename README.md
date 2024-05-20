@@ -16,7 +16,6 @@ Terraform module to create a route53 hosted zone with optional configurations.
 |----------------------------|----------------------------------------|--------|----------------------|
 | `cloudfront_endpoint`      | Value                                  | string | `""`                 |
 | `cloudfront_zone_id`       | Value                                  | string | `""`                 |
-| `domain_validation_options`| List of domain validation options      | list(object) | `[]`           |
 | `nameservers`              | List of nameservers                    | list(string) | `[]`           |
 
 ## Usage
@@ -34,14 +33,6 @@ module "route53" {
   # Optional variables
   cloudfront_endpoint       = "XXX.cloudfront.net" # usually output from other modules
   cloudfront_zone_id        = "XXX" # usually output from other modules
-  domain_validation_options = [
-    {
-      domain_name           = "example.com"
-      resource_record_name  = "_acme-challenge.example.com"
-      resource_record_value = "validation-value"
-      resource_record_type  = "CNAME"
-    }
-  ]
   nameservers               = ["ns-XXX.awsdns-XX.net", "ns-XXX.awsdns-XX.org"]
 }
 ```
