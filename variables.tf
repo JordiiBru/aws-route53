@@ -1,5 +1,4 @@
 # REQUIRED VARIABLES
-
 variable "stage" {
   description = "Stage of development"
   type        = string
@@ -32,4 +31,42 @@ variable "owner" {
   }
 }
 
+variable "domain_name" {
+  description = "Name of the domain"
+  type        = string
+  default     = null
+  validation {
+    condition     = length(var.domain_name) >= 3
+    error_message = "You must define a domain name."
+  }
+}
+
 # OPTIONAL VARIABLES
+variable "cloudfront_endpoint" {
+  description = "value"
+  type        = string
+  default     = ""
+}
+
+variable "cloudfront_zone_id" {
+  description = "value"
+  type        = string
+  default     = ""
+}
+
+variable "domain_validation_options" {
+  description = "List of domain validation options"
+  type = list(object({
+    domain_name           = string
+    resource_record_name  = string
+    resource_record_value = string
+    resource_record_type  = string
+  }))
+  default = []
+}
+
+variable "nameservers" {
+  description = "List of nameservers"
+  type        = list(string)
+  default     = []
+}
