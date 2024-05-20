@@ -3,21 +3,21 @@ Terraform module to create a route53 hosted zone with optional configurations.
 
 ## Required Variables
 
-| Nombre        | Descripción                                     | Tipo   | Valores Permitidos                                    | Valor Predeterminado |
-|---------------|-------------------------------------------------|--------|------------------------------------------------------|----------------------|
-| `stage`       | Stage of development                            | string | `test`, `dev`, `staging`, `prod`                     | Ninguno              |
-| `purpose`     | Short description about the created resource    | string | Expresión regular: `^[a-zA-Z0-9-_]*$`                | Ninguno              |
-| `owner`       | Owner of the deployed infrastructure            | string | Mínimo 3 caracteres                                  | Ninguno              |
-| `domain_name` | Name of the domain                              | string | Mínimo 3 caracteres                                  | Ninguno              |
+| Name          | Description                                     | Type   | Validation                                           | Default |
+|---------------|-------------------------------------------------|--------|------------------------------------------------------|------------------|
+| `stage`       | Stage of development                            | string | `test`, `dev`, `staging`, `prod`                     | N/A              |
+| `purpose`     | Short description about the created resource    | string | Must match the regex `^[a-zA-Z0-9-_]*$`              | N/A              |
+| `owner`       | Owner of the deployed infrastructure            | string | Must have more than three characters                 | N/A              |
+| `domain_name` | Name of the domain                              | string | Must have more than three characters                 | N/A              |
 
 ## Optional Variables
 
-| Nombre                     | Descripción                            | Tipo   | Valor Predeterminado |
+| Name                       | Description                            | Tipo   | Default              |
 |----------------------------|----------------------------------------|--------|----------------------|
 | `cloudfront_endpoint`      | Value                                  | string | `""`                 |
 | `cloudfront_zone_id`       | Value                                  | string | `""`                 |
-| `domain_validation_options`| List of domain validation options      | list(object) | `[]`                 |
-| `nameservers`              | List of nameservers                    | list(string) | `[]`                 |
+| `domain_validation_options`| List of domain validation options      | list(object) | `[]`           |
+| `nameservers`              | List of nameservers                    | list(string) | `[]`           |
 
 ## Usage
 
