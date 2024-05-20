@@ -43,26 +43,15 @@ variable "domain_name" {
 
 # OPTIONAL VARIABLES
 variable "cloudfront_endpoint" {
-  description = "value"
+  description = "Clodufront endpoint"
   type        = string
   default     = ""
 }
 
 variable "cloudfront_zone_id" {
-  description = "value"
+  description = "Cloudfront zone id"
   type        = string
   default     = ""
-}
-
-variable "domain_validation_options" {
-  description = "List of domain validation options"
-  type = list(object({
-    domain_name           = string
-    resource_record_name  = string
-    resource_record_value = string
-    resource_record_type  = string
-  }))
-  default = []
 }
 
 variable "nameservers" {
