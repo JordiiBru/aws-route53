@@ -4,5 +4,5 @@ output "zone_name" {
 }
 
 output "cert_record" {
-  value       = aws_route53_record.A_record[*]
+  value = aws_route53_record.A_record[*]
 }
