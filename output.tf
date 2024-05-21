@@ -6,3 +6,7 @@ output "zone_name" {
 output "cert_record" {
   value = aws_route53_record.A_record[*]
 }
+
+output "zone_id" {
+  value = aws_route53_zone.hosted_zone.zone_id
+}
