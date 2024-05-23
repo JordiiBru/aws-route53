@@ -32,6 +32,8 @@ resource "aws_route53_record" "NS_record" {
   allow_overwrite = true
 
   records = var.nameservers
+
+  depends_on = [ aws_route53_record.A_record ]
 }
 
 
@@ -51,4 +53,6 @@ resource "aws_route53_record" "cert_validations" {
   ttl             = 60
   type            = each.value.type
   zone_id         = aws_route53_zone.hosted_zone.zone_id
+
+   depends_on = [ aws_route53_record.A_record ]
 }
