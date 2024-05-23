@@ -32,8 +32,6 @@ resource "aws_route53_record" "NS_record" {
   allow_overwrite = true
 
   records = var.nameservers
-
-  depends_on = [ aws_route53_record.A_record ]
 }
 
 
