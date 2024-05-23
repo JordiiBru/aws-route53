@@ -59,3 +59,7 @@ variable "nameservers" {
   type        = list(string)
   default     = []
 }
+
+variable "domain_validation_options" {
+  
+}

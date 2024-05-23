@@ -10,3 +10,7 @@ output "cert_record" {
 output "zone_id" {
   value = aws_route53_zone.hosted_zone.zone_id
 }
+
+output "record_validation_cert" {
+   value = aws_route53_record.cert_validations[*]
+}
