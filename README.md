@@ -1,5 +1,5 @@
 # aws-route53
-Terraform module to create a route53 hosted zone with optional configurations.
+Terraform module to create a route53 hosted zone with records on it.
 
 ## Required Variables
 
