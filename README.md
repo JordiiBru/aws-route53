@@ -1,5 +1,5 @@
 # aws-route53
-Terraform module to create a route53 hosted zone with records on it.
+Terraform module to create route53 records into jordibru.cloud hosted zone.
 
 ## Required Variables
 
