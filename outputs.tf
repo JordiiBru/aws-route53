@@ -8,5 +8,5 @@ output "zone_id" {
 }
 
 output "record_name" {
-  value = aws_route53_record.A_record.name
+  value = aws_route53_record.A_record[0].name
 }
