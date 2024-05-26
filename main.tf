@@ -5,7 +5,7 @@ data "aws_route53_zone" "jordibru_cloud" {
 # A record
 resource "aws_route53_record" "A_record" {
   count   = (var.cloudfront_endpoint != "") && (var.cloudfront_zone_id != "") ? 1 : 0
-  zone_id = aws_route53_zone.jordibru_cloud.zone_id
+  zone_id = data.aws_route53_zone.jordibru_cloud.zone_id
   name    = var.domain_name
   type    = "A"
   alias {
