@@ -10,7 +10,4 @@ module "route53" {
   # Optional variables
   cloudfront_endpoint = "XXX.cloudfront.net" # usually output from other modules
   cloudfront_zone_id  = "XXX"                # usually output from other modules
-  nameservers = [
-    "ns-XXX.awsdns-XX.net", "ns-XXX.awsdns-XX.org"
-  ]
 }

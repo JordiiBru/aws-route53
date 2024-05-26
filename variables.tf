@@ -31,17 +31,17 @@ variable "owner" {
   }
 }
 
+# CUSTOM VARIABLES
 variable "domain_name" {
   description = "Name of the domain"
   type        = string
-  default     = null
+  default     = ""
   validation {
     condition     = length(var.domain_name) >= 3
     error_message = "You must define a domain name."
   }
 }
 
-# OPTIONAL VARIABLES
 variable "cloudfront_endpoint" {
   description = "Cloudfront endpoint"
   type        = string
@@ -54,12 +54,13 @@ variable "cloudfront_zone_id" {
   default     = ""
 }
 
-variable "nameservers" {
-  description = "List of nameservers"
-  type        = list(string)
-  default     = []
-}
-
 variable "domain_validation_options" {
-  
+  description = "Domain validation objects which can be used to complete certificate validation."
+    type        = list(object({
+    domain_name           = string
+    resource_record_name  = string
+    resource_record_type  = string
+    resource_record_value = string
+  }))
+  default     = []
 }
