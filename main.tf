@@ -2,7 +2,6 @@ data "aws_route53_zone" "jordibru_cloud" {
   name         = "jordibru.cloud"
 }
 
-# A record
 resource "aws_route53_record" "A_record" {
   zone_id = data.aws_route53_zone.jordibru_cloud.zone_id
   name    = var.domain_name
