@@ -11,7 +11,7 @@ Terraform module to create Route 53 records in the jordibru.cloud hosted zone.
 | `owner`       | The owner of the deployed infrastructure.       | string | Must have more than three characters          | N/A     |
 | `domain_name` | The name of the domain.                         | string | Must have more than three characters          | N/A     |
 
-## Optional Variables
+## Custom Variables
 
 | Name                       | Description                                           | Type   | Default              |
 |----------------------------|-------------------------------------------------------|--------|----------------------|
