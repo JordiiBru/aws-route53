@@ -7,7 +7,7 @@ module "route53" {
   owner       = "wanda"
   domain_name = "example.com"
 
-  # Optional variables
+  # Custom variables
   cloudfront_endpoint = "XXX.cloudfront.net" # usually output from other modules
   cloudfront_zone_id  = "XXX"                # usually output from other modules
 }
