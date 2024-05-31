@@ -42,7 +42,7 @@ The `domain_validation_options` variable is a list of objects that define the pa
 
 ```hcl
 module "route53" {
-  source = "../"
+  source = "git@github.com:JordiiBru/aws-route53.git?ref=[TAG]"
 
   # Required variables
   stage                     = "dev"
