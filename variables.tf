@@ -34,36 +34,37 @@ variable "owner" {
 
 # CUSTOM VARIABLES
 
-variable "domain_name" {
+variable "subdomain" {
   description = "The name of the domain."
   type        = string
-  default     = ""
 
   validation {
-    condition     = length(var.domain_name) >= 3
-    error_message = "You must define a domain name with at least three characters."
+    condition     = length(var.subdomain) >= 3
+    error_message = "You must define a subdomain name with at least three characters."
   }
 }
 
-variable "cloudfront_endpoint" {
-  description = "The CloudFront endpoint."
+variable "type" {
+  description = "The record type."
   type        = string
-  default     = ""
+
+  validation {
+    condition     = can(regex("^(A|AAAA|CAA|CNAME|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT)$", var.type))
+    error_message = "The record type must be one of the following: A, AAAA, CAA, CNAME, MX, NAPTR, NS, PTR, SOA, SPF, SRV, TXT."
+  }
 }
 
-variable "cloudfront_zone_id" {
-  description = "The CloudFront zone ID."
-  type        = string
-  default     = ""
-}
-
-variable "domain_validation_options" {
-  description = "Domain validation objects used to complete certificate validation."
-  type        = list(object({
-    domain_name           = string
-    resource_record_name  = string
-    resource_record_type  = string
-    resource_record_value = string
-  }))
+variable "records" {
+  description = "A string list of records."
+  type        = list(string)
   default     = []
+}
+
+variable "alias" {
+  description = "Alias record object."
+  type = object({
+    name    = optional(string)
+    zone_id = optional(string)
+  })
+  default = null
 }
