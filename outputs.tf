@@ -10,6 +10,6 @@ output "zone_id" {
 }
 
 output "record_name" {
-  description = "The name of the Route 53 A record."
-  value       = aws_route53_record.A_record.name
+  description = "The name of the Route 53 record."
+  value       = aws_route53_record.record.name
 }
